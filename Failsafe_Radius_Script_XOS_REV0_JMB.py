@@ -6,6 +6,12 @@ from device import api
 from device.deviceutils import DeviceUtils
 import re
 
+def exosCmd(cmd):
+        print cmd
+        result = exsh.clicmd(cmd, True)
+        print(str(result))
+        return result
+
 pattern = re.compile("(\d){1,3}.(\d){1,3}.(\d){1,3}.(\d){1,3}")
 emc_cli.send("configure failsafe-account", False)
 emc_cli.send("justin2023", False)
@@ -15,7 +21,8 @@ emc_cli.send("configure failsafe-account permit all", False)
 emc_cli.send("save", False)
 emc_cli.send("y", False)
 
-device_IP_String = emc_cli.send('show WCSmgmt | include Primary', True)
+#changed logic to work with exsh
+device_IP_String = exosCmd('show WCSmgmt | include Primary')
 print (device_IP_String)
 IP_List = pattern.findall(device_IP_String)
 device_IP_Final = IP_List[0]
