@@ -14,7 +14,7 @@ emc_cli.send("save", False)
 emc_cli.send("y", False)
 
 #changed logic to work with exsh
-device_IP = emc_vars['device_ip']
+device_IP = emc_vars['deviceIP']
 command1 = 'configure radius mgmt-access primary server 10.60.7.103 1812 client-ip' + device_IP + 'vr VR-Default'
 emc_cli.send( command1 , False)
 emc_cli.send('configure radius mgmt-access primary shared-secret a7z3436f2nteyf3u4n8frwpucsakk6', False)
