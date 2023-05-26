@@ -1,4 +1,3 @@
-import exsh
 import xmclib
 from xmclib import emc_vars
 from xmclib import cli
@@ -6,7 +5,6 @@ from device import api
 from device.deviceutils import DeviceUtils
 # emc_vars['device_ip']
 
-pattern = re.compile("(\d){1,3}.(\d){1,3}.(\d){1,3}.(\d){1,3}")
 emc_cli.send("configure failsafe-account", False)
 emc_cli.send("justin2023", False)
 emc_cli.send("warren17", False)
